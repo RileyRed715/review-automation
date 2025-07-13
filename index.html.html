@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Review Automation - Boost Your Google Reviews & Ratings Instantly</title>
+    <meta name="description" content="Automated restaurant review management system. Boost your Google My Business ratings, respond to reviews instantly, and increase customer satisfaction. Free trial available.">
+    <meta name="keywords" content="restaurant review automation, Google My Business optimization, review management, restaurant marketing, customer reviews, rating boost">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Restaurant Review Automation - Boost Your Google Reviews Instantly">
+    <meta property="og:description" content="Transform every review into profit. AI-powered review responses that boost ratings and save 15+ hours weekly.">
+    <meta property="og:image" content="https://your-domain.com/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Restaurant Review Automation - Boost Your Google Reviews Instantly">
+    <meta property="twitter:description" content="Transform every review into profit. AI-powered review responses that boost ratings and save 15+ hours weekly.">
+    
+    <!-- Schema Markup for Local Business -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Restaurant Review Automation",
+        "description": "AI-powered restaurant review management and automation service",
+        "url": "https://your-domain.com",
+        "telephone": "+1-629-302-1519",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 36.1627,
+            "longitude": -86.7816
+        },
+        "openingHours": "Mo-Fr 09:00-17:00",
+        "priceRange": "$$",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127"
+        }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.1"><circle cx="30" cy="30" r="4"/></g></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-60px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideInDown 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
+        }
+
+        .phone-cta {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .phone-cta:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Trust Indicators */
+        .trust-bar {
+            background: #f8f9fa;
+            padding: 20px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .trust-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .trust-item {
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .trust-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #28a745;
+            display: block;
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .problem h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .problem-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #e74c3c;
+            transition: transform 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .solution-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .solution-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .solution-features li {
+            padding: 15px 0;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .solution-features li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #28a745, #20c997);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .demo-container {
+            position: relative;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .phone-mockup {
+            background: #000;
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: transform 0.3s ease;
+        }
+
+        .phone-mockup:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .phone-screen {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 20px;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .demo-review {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: slideIn 2s ease-out infinite;
+        }
+
+        @keyframes slideIn {
+            0%, 100% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-10px); opacity: 0.8; }
+        }
+
+        .review-stars {
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .review-text {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .ai-response {
+            background: #e8f5e8;
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 10px;
+            border-left: 4px solid #28a745;
+        }
+
+        .ai-badge {
+            color: #28a745;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .pricing-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin-bottom: 50px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+
+        .pricing-card.featured {
+            border-color: #667eea;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: 20px;
+            left: -30px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(-45deg);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pricing-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .pricing-period {
+            color: #6c757d;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f8f9fa;
+            color: #495057;
+        }
+
+        .pricing-features li:before {
+            content: '✓';
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .pricing-cta {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .pricing-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .guarantee {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .guarantee h3 {
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .social-proof h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #667eea;
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #495057;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-info h4 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .urgency-timer {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .timer-display {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 20px;
+            color: #bdc3c7;
+        }
+
+        /* Animations */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .solution-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .phone-mockup {
+                transform: none;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Floating Contact Button */
+        .floating-contact {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .floating-contact:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Loading States */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Modal Styles */
+        .pricing-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            padding-top: 100px;
+        }
+        
+        .modal-content {
+            background: white;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>🚀 Transform Every Review Into Profit</h1>
+                <p class="hero-subtitle">
+                    AI-Powered Review Management That Boosts Your Google Ratings & Saves 15+ Hours Weekly
+                </p>
+                <div class="hero-cta">
+                    <a href="#pricing" class="cta-button">
+                        🎁 Start Your Free Trial
+                    </a>
+                    <a href="tel:+16293021519" class="phone-cta">
+                        📞 Call: (629) 302-1519
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-content">
+                <div class="trust-item">
+                    <span class="trust-number">500+</span>
+                    Restaurants Served
+                </div>
+                <div class="trust-item">
+                    <span class="trust-number">+0.8</span>
+                    Average Rating Boost
+                </div>
+                <div class="trust-item">
+                    <span class="trust-number">15h</span>
+                    Weekly Time Savings
+                </div>
+                <div class="trust-item">
+                    <span class="trust-number">98%</span>
+                    Customer Satisfaction
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2>❌ Are These Problems Killing Your Restaurant's Growth?</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <span class="problem-icon">😡</span>
+                    <h3>Negative Reviews Go Unanswered</h3>
+                    <p>Every hour without a response costs you 3-5 potential customers. Negative reviews spread faster than wildfire on Google.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-icon">⏰</span>
+                    <h3>No Time to Manage Reviews</h3>
+                    <p>Between running your restaurant and managing staff, who has time to craft personal responses to every review?</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-icon">📉</span>
+                    <h3>Ratings Are Stuck or Declining</h3>
+                    <p>Your Google My Business rating directly impacts how many customers find you. Even a 0.1 star drop can cost thousands in revenue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h2>✅ Our AI Responds to Every Review in Under 30 Seconds</h2>
+                    <p>Imagine never missing another review again. Our AI system monitors your Google My Business 24/7 and responds with personalized, professional messages that turn every review into a marketing opportunity.</p>
+                    
+                    <ul class="solution-features">
+                        <li>
+                            <div class="feature-icon">⚡</div>
+                            <div>
+                                <strong>Lightning Fast Responses</strong><br>
+                                AI responds within 30 seconds of any new review
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon">🎯</div>
+                            <div>
+                                <strong>Personalized Messages</strong><br>
+                                Each response is tailored to the specific review content
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon">🔔</div>
+                            <div>
+                                <strong>Instant Alerts</strong><br>
+                                Get notified immediately about negative reviews
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon">📈</div>
+                            <div>
+                                <strong>Proven Results</strong><br>
+                                Average 0.8 star rating increase within 90 days
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="demo-container">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="demo-review">
+                                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                                <p class="review-text">"Amazing pasta! Great service, will definitely return!"</p>
+                                <div class="ai-response">
+                                    <div class="ai-badge">🤖 AI Response (28 seconds)</div>
+                                    <p>"Thank you so much for the wonderful review! We're thrilled you enjoyed our pasta. We can't wait to welcome you back!"</p>
+                                </div>
+                            </div>
+                            <div class="demo-review">
+                                <div class="review-stars">⭐⭐</div>
+                                <p class="review-text">"Food was cold and service was slow."</p>
+                                <div class="ai-response">
+                                    <div class="ai-badge">🤖 AI Response (22 seconds)</div>
+                                    <p>"We sincerely apologize for your experience. Please contact us at (629) 302-1519 so we can make this right immediately."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <h2>🏆 Real Results from Real Restaurants</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "Our Google rating went from 3.2 to 4.6 stars in just 3 months! The AI responses are so professional, customers think I'm personally writing each one. This system saved my restaurant."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Maria Rodriguez</h4>
+                            <p>Owner, Bella Vista Restaurant</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "I was spending 2 hours every day responding to reviews. Now I spend 10 minutes reviewing the AI responses and my ratings are higher than ever. ROI was immediate."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div class="author-info">
+                            <h4>James Thompson</h4>
+                            <p>Manager, Downtown Bistro</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "The negative review alerts are a game-changer. We can address problems immediately before they hurt our reputation. Worth every penny."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sarah Chen</h4>
+                            <p>Owner, Golden Dragon</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>💰 Simple, Profit-Focused Pricing</h2>
+            <p class="pricing-subtitle">Choose the plan that fits your restaurant's needs</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Starter</h3>
+                    <div class="pricing-price">$97</div>
+                    <p class="pricing-period">per month</p>
+                    <ul class="pricing-features">
+                        <li>Up to 50 reviews per month</li>
+                        <li>AI response within 30 seconds</li>
+                        <li>Google My Business integration</li>
+                        <li>Basic email alerts</li>
+                        <li>Weekly reports</li>
+                    </ul>
+                    <button class="pricing-cta">Start Free Trial</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <h3 class="pricing-title">Professional</h3>
+                    <div class="pricing-price">$197</div>
+                    <p class="pricing-period">per month</p>
+                    <ul class="pricing-features">
+                        <li>Unlimited reviews</li>
+                        <li>AI + human review</li>
+                        <li>Slack & SMS alerts</li>
+                        <li>CRM integration</li>
+                        <li>Monthly strategy session</li>
+                    </ul>
+                    <button class="pricing-cta">Start Free Trial</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Enterprise</h3>
+                    <div class="pricing-price">$497</div>
+                    <p class="pricing-period">per month</p>
+                    <ul class="pricing-features">
+                        <li>Multiple locations</li>
+                        <li>Priority support</li>
+                        <li>Custom AI training</li>
+                        <li>Dedicated account manager</li>
+                        <li>Competitor analysis</li>
+                    </ul>
+                    <button class="pricing-cta">Start Free Trial</button>
+                </div>
+            </div>
+            
+            <div class="guarantee">
+                <h3>✨ 30-Day Money-Back Guarantee</h3>
+                <p>If your ratings don't improve within 30 days, we'll refund 100% of your payment. No questions asked.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signup Modal -->
+    <div class="pricing-modal" id="signupModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="document.getElementById('signupModal').style.display='none'">×</span>
+            <h3>Complete Your Signup</h3>
+            <form id="signupForm">
+                <input type="hidden" name="planType" id="selectedPlan">
+                
+                <div class="form-group">
+                    <label>Restaurant Name</label>
+                    <input type="text" name="restaurantName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Owner Name</label>
+                    <input type="text" name="ownerName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" name="city" required>
+                </div>
+                
+                <button type="submit" class="cta-button" style="margin-top:20px">Complete Signup</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Transform Your Online Reputation?</h2>
+            <p>Join hundreds of restaurants already boosting their ratings and saving hours every week.</p>
+            
+            <div class="urgency-timer">
+                <p>Limited time offer:</p>
+                <div class="timer-display">15:00</div>
+                <p>Free setup for the next 10 signups!</p>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="#pricing" class="cta-button">Start Free Trial</a>
+                <a href="tel:+16293021519" class="phone-cta">Speak With Our Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Restaurant Review Automation</h3>
+                    <p>AI-powered review management that boosts your Google ratings and saves you time.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#">How It Works</a>
+                    <a href="#">Case Studies</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">Contact Us</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">GDPR Compliance</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Restaurant Review Automation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Button -->
+    <a href="tel:+16293021519" class="floating-contact">📞 Call Now</a>
+    
+    <!-- Loading Spinner -->
+    <div class="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <script>
+        // Pricing plan selection
+        document.querySelectorAll('.pricing-cta').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const plan = button.closest('.pricing-card').querySelector('.pricing-title').textContent;
+                document.getElementById('selectedPlan').value = plan;
+                document.getElementById('signupModal').style.display = 'block';
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('signupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Show loading spinner
+            document.querySelector('.loading').style.display = 'flex';
+            
+            try {
+                const formData = Object.fromEntries(new FormData(e.target));
+                
+                // Send to n8n webhook
+                const response = await fetch('http://localhost:5678/webhook/signup-webhook', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(formData)
+                });
+
+                if(response.ok) {
+                    alert('Signup successful! We\'ll contact you shortly to set up your account.');
+                    document.getElementById('signupModal').style.display = 'none';
+                } else {
+                    throw new Error('Signup failed. Please try again.');
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            } finally {
+                document.querySelector('.loading').style.display = 'none';
+            }
+        });
+
+        // Countdown timer
+        let timeLeft = 900; // 15 minutes in seconds
+        const timerDisplay = document.querySelector('.timer-display');
+        
+        function updateTimer() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if(timeLeft <= 0) {
+                clearInterval(timer);
+                timerDisplay.textContent = "Offer Expired";
+            } else {
+                timeLeft--;
+            }
+        }
+        
+        const timer = setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>
