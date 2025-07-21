@@ -1135,11 +1135,14 @@
                 const formData = Object.fromEntries(new FormData(e.target));
                 
                 // Send to n8n webhook
-                const response = await fetch('http://localhost:5678/webhook/signup-webhook', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(formData)
-                });
+                const response = await fetch(
+            'https://automate.restaurantreview.info/webhook/signup-webhook', 
+            {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(formData)
+            }
+);
 
                 if(response.ok) {
                     alert('Signup successful! We\'ll contact you shortly to set up your account.');
