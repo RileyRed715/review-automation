@@ -26,7 +26,6 @@
         "name": "Restaurant Review Automation",
         "description": "AI-powered restaurant review management and automation service",
         "url": "https://your-domain.com",
-        "telephone": "+1-629-302-1519",
         "address": {
             "@type": "PostalAddress",
             "addressCountry": "US"
@@ -140,22 +139,6 @@
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
-        }
-
-        .phone-cta {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .phone-cta:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
         }
 
         /* Trust Indicators */
@@ -677,31 +660,6 @@
             }
         }
 
-        /* Floating Contact Button */
-        .floating-contact {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(45deg, #25d366, #128c7e);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            z-index: 1000;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .floating-contact:hover {
-            transform: translateY(-2px);
-        }
-
         /* Loading States */
         .loading {
             display: none;
@@ -790,9 +748,6 @@
                 <div class="hero-cta">
                     <a href="#pricing" class="cta-button">
                         🎁 Start Your Free Trial
-                    </a>
-                    <a href="tel:+16293021519" class="phone-cta">
-                        📞 Call: (629) 302-1519
                     </a>
                 </div>
             </div>
@@ -903,7 +858,7 @@
                                 <p class="review-text">"Food was cold and service was slow."</p>
                                 <div class="ai-response">
                                     <div class="ai-badge">🤖 AI Response (22 seconds)</div>
-                                    <p>"We sincerely apologize for your experience. Please contact us at (629) 302-1519 so we can make this right immediately."</p>
+                                    <p>"We sincerely apologize for your experience. Please contact us so we can make this right immediately."</p>
                                 </div>
                             </div>
                         </div>
@@ -1041,11 +996,6 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>Phone</label>
-                    <input type="tel" name="phone" required>
-                </div>
-                
-                <div class="form-group">
                     <label>City</label>
                     <input type="text" name="city" required>
                 </div>
@@ -1069,7 +1019,6 @@
             
             <div class="cta-buttons">
                 <a href="#pricing" class="cta-button">Start Free Trial</a>
-                <a href="tel:+16293021519" class="phone-cta">Speak With Our Team</a>
             </div>
         </div>
     </section>
@@ -1105,9 +1054,6 @@
         </div>
     </footer>
 
-    <!-- Floating Contact Button -->
-    <a href="tel:+16293021519" class="floating-contact">📞 Call Now</a>
-    
     <!-- Loading Spinner -->
     <div class="loading">
         <div class="spinner"></div>
