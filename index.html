@@ -45,6 +45,9 @@
     }
     </script>
     
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD&disable-funding=credit,card"></script>
+    
     <style>
         * {
             margin: 0;
@@ -734,6 +737,23 @@
             border-radius: 8px;
             border: 1px solid #ddd;
         }
+        
+        /* PayPal button container */
+        .paypal-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        /* Success message */
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -933,7 +953,7 @@
                         <li>Basic email alerts</li>
                         <li>Weekly reports</li>
                     </ul>
-                    <button class="pricing-cta">Start Free Trial</button>
+                    <button class="pricing-cta" data-plan="Starter" data-price="97">Start Free Trial</button>
                 </div>
                 
                 <div class="pricing-card featured">
@@ -947,7 +967,7 @@
                         <li>CRM integration</li>
                         <li>Monthly strategy session</li>
                     </ul>
-                    <button class="pricing-cta">Start Free Trial</button>
+                    <button class="pricing-cta" data-plan="Professional" data-price="197">Start Free Trial</button>
                 </div>
                 
                 <div class="pricing-card">
@@ -961,7 +981,7 @@
                         <li>Dedicated account manager</li>
                         <li>Competitor analysis</li>
                     </ul>
-                    <button class="pricing-cta">Start Free Trial</button>
+                    <button class="pricing-cta" data-plan="Enterprise" data-price="497">Start Free Trial</button>
                 </div>
             </div>
             
@@ -978,8 +998,6 @@
             <span class="close-modal" onclick="document.getElementById('signupModal').style.display='none'">×</span>
             <h3>Complete Your Signup</h3>
             <form id="signupForm">
-                <input type="hidden" name="planType" id="selectedPlan">
-                
                 <div class="form-group">
                     <label>Restaurant Name</label>
                     <input type="text" name="restaurantName" required>
@@ -1000,7 +1018,14 @@
                     <input type="text" name="city" required>
                 </div>
                 
-                <button type="submit" class="cta-button" style="margin-top:20px">Complete Signup</button>
+                <div class="paypal-container">
+                    <div id="paypal-button-container"></div>
+                </div>
+                
+                <div class="success-message" id="successMessage">
+                    <p>🎉 Payment successful! Your account is being activated.</p>
+                    <p>You'll receive confirmation in your email shortly.</p>
+                </div>
             </form>
         </div>
     </div>
@@ -1060,48 +1085,97 @@
     </div>
 
     <script>
+        // Global variables
+        let selectedPlan = '';
+        let selectedPlanPrice = 0;
+        
         // Pricing plan selection
         document.querySelectorAll('.pricing-cta').forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
-                const plan = button.closest('.pricing-card').querySelector('.pricing-title').textContent;
-                document.getElementById('selectedPlan').value = plan;
+                selectedPlan = button.dataset.plan;
+                selectedPlanPrice = parseFloat(button.dataset.price);
+                
+                // Show modal
                 document.getElementById('signupModal').style.display = 'block';
+                
+                // Initialize PayPal button for this plan
+                initPayPalButton(selectedPlan, selectedPlanPrice);
             });
         });
 
-        // Form submission handler
-        document.getElementById('signupForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
+        // Initialize PayPal button
+        function initPayPalButton(plan, price) {
+            // Clear previous button if any
+            document.getElementById('paypal-button-container').innerHTML = '';
             
-            // Show loading spinner
-            document.querySelector('.loading').style.display = 'flex';
+            // Hide success message
+            document.getElementById('successMessage').style.display = 'none';
             
-            try {
-                const formData = Object.fromEntries(new FormData(e.target));
-                
-                // Send to n8n webhook
-                const response = await fetch(
-            'https://automate.restaurantreview.info/webhook/signup-webhook', 
-            {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(formData)
-            }
-);
-
-                if(response.ok) {
-                    alert('Signup successful! We\'ll contact you shortly to set up your account.');
-                    document.getElementById('signupModal').style.display = 'none';
-                } else {
-                    throw new Error('Signup failed. Please try again.');
+            // Render PayPal button
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: price
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    // Show loading spinner
+                    document.querySelector('.loading').style.display = 'flex';
+                    
+                    return actions.order.capture().then(function(details) {
+                        // Payment completed successfully
+                        const formData = {
+                            restaurantName: document.querySelector('input[name="restaurantName"]').value,
+                            ownerName: document.querySelector('input[name="ownerName"]').value,
+                            email: document.querySelector('input[name="email"]').value,
+                            city: document.querySelector('input[name="city"]').value,
+                            planType: plan,
+                            amount: price,
+                            paymentId: details.id,
+                            payerEmail: details.payer.email_address,
+                            payerName: details.payer.name.given_name + ' ' + details.payer.name.surname
+                        };
+                        
+                        // Send to n8n webhook
+                        fetch('https://automate.restaurantreview.info/webhook/signup-webhook', {
+                            method: 'POST',
+                            headers: {'Content-Type': 'application/json'},
+                            body: JSON.stringify(formData)
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                // Hide PayPal button and show success message
+                                document.getElementById('paypal-button-container').style.display = 'none';
+                                document.getElementById('successMessage').style.display = 'block';
+                                
+                                // Reset form after 3 seconds and close modal
+                                setTimeout(() => {
+                                    document.getElementById('signupForm').reset();
+                                    document.getElementById('paypal-button-container').style.display = 'block';
+                                    document.getElementById('signupModal').style.display = 'none';
+                                }, 3000);
+                            } else {
+                                throw new Error('Signup failed. Please try again.');
+                            }
+                        })
+                        .catch(error => {
+                            alert('Error: ' + error.message);
+                        })
+                        .finally(() => {
+                            document.querySelector('.loading').style.display = 'none';
+                        });
+                    });
+                },
+                onError: function(err) {
+                    alert('Payment failed: ' + err);
                 }
-            } catch (error) {
-                alert('Error: ' + error.message);
-            } finally {
-                document.querySelector('.loading').style.display = 'none';
-            }
-        });
+            }).render('#paypal-button-container');
+        }
 
         // Countdown timer
         let timeLeft = 900; // 15 minutes in seconds
