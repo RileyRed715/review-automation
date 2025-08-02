@@ -4,32 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🚨 Flash Sale: Restaurant Review Fix - 50% OFF Today Only!</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
             color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            overflow-x: hidden;
-        }
-        
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
         
         .flash-banner {
-            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
             color: white;
             text-align: center;
             padding: 15px;
@@ -38,13 +30,11 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.03); box-shadow: 0 0 20px rgba(255, 107, 107, 0.6); }
+            50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
         
@@ -56,181 +46,82 @@
         
         .hero {
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
             margin: 40px 0;
             padding: 60px 40px;
             text-align: center;
             color: white;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-            z-index: -1;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-        
-        .hero h2 {
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        
-        .hero p {
-            font-size: 1.4rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
         
         .countdown {
             background: rgba(255, 107, 107, 0.9);
             color: white;
-            padding: 25px;
+            padding: 20px;
             border-radius: 15px;
             margin: 30px 0;
             text-align: center;
-            font-size: 1.8rem;
+            font-size: 1.5em;
             font-weight: bold;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-            border: 2px solid rgba(255,255,255,0.3);
         }
         
         .price-section {
             background: white;
             border-radius: 20px;
-            padding: 50px;
+            padding: 40px;
             margin: 40px 0;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-            position: relative;
-            border: 2px solid #feca57;
-        }
-        
-        .price-section::before {
-            content: "LIMITED TIME OFFER";
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            color: white;
-            padding: 8px 30px;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
         
         .price-original {
-            font-size: 2.2rem;
+            font-size: 2em;
             color: #999;
             text-decoration: line-through;
             margin-bottom: 10px;
         }
         
         .price-sale {
-            font-size: 4rem;
+            font-size: 3em;
             color: #ff6b6b;
-            font-weight: 900;
+            font-weight: bold;
             margin-bottom: 20px;
-            text-shadow: 0 3px 6px rgba(0,0,0,0.1);
-        }
-        
-        .price-sale span {
-            font-size: 2rem;
-            vertical-align: super;
-        }
-        
-        .urgency-box {
-            background: linear-gradient(to right, #fff3cd, #fff9e6);
-            border: 3px solid #feca57;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 30px auto;
-            text-align: center;
-            max-width: 700px;
-            font-size: 1.3rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-        
-        .urgency-box strong {
-            color: #ff6b6b;
         }
         
         .cta-button {
             background: linear-gradient(45deg, #ff6b6b, #feca57);
             color: white;
-            padding: 25px 60px;
+            padding: 20px 40px;
             border: none;
-            border-radius: 60px;
-            font-size: 1.5rem;
+            border-radius: 50px;
+            font-size: 1.3em;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
             text-decoration: none;
             display: inline-block;
             margin: 20px 0;
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.5);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
         }
         
         .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.7);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
         }
         
-        .cta-button:active {
-            transform: translateY(0) scale(0.98);
-        }
-        
-        .cta-button::after {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255,255,255,0.1);
-            transform: rotate(30deg);
-            transition: all 0.6s ease;
-        }
-        
-        .cta-button:hover::after {
-            transform: rotate(30deg) translate(20%, 100%);
-        }
-        
-        .guarantee-badge {
-            display: inline-flex;
-            align-items: center;
-            background: #f8f9fa;
-            border: 2px dashed #28a745;
-            border-radius: 10px;
-            padding: 12px 25px;
-            margin: 20px 0;
-            font-weight: bold;
-            color: #28a745;
+        .urgency-box {
+            background: #fff3cd;
+            border: 2px solid #fecaa3;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
         }
         
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin: 50px 0;
         }
@@ -239,223 +130,15 @@
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 15px;
-            padding: 35px 25px;
+            padding: 30px;
             text-align: center;
             color: white;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .feature:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-        
-        .feature i {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: #feca57;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         
         .feature h3 {
             color: #feca57;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-        
-        .feature p {
-            font-size: 1.2rem;
-            line-height: 1.7;
-        }
-        
-        .testimonials {
-            background: white;
-            border-radius: 20px;
-            padding: 50px 40px;
-            margin: 50px 0;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        }
-        
-        .testimonials h2 {
-            color: #333;
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-        }
-        
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 30px;
-            text-align: left;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-left: 5px solid #ff6b6b;
-        }
-        
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .testimonial-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: #ff6b6b;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-right: 15px;
-        }
-        
-        .testimonial h4 {
-            color: #333;
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-        }
-        
-        .testimonial .stars {
-            color: #feca57;
-            font-size: 1.2rem;
             margin-bottom: 15px;
-        }
-        
-        .testimonial p {
-            color: #666;
-            font-style: italic;
-            line-height: 1.7;
-        }
-        
-        .faq {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 50px 40px;
-            margin: 50px 0;
-            color: white;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .faq h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-            color: #feca57;
-        }
-        
-        .faq-item {
-            margin-bottom: 25px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding-bottom: 25px;
-        }
-        
-        .faq-question {
-            font-size: 1.4rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-        
-        .faq-question i {
-            margin-right: 15px;
-            color: #ff6b6b;
-        }
-        
-        .faq-answer {
-            font-size: 1.2rem;
-            line-height: 1.7;
-            padding-left: 35px;
-            display: none;
-        }
-        
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-        
-        .live-counter {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(45deg, #ff416c, #ff4b2b);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            animation: pulseSmall 1.5s infinite;
-        }
-        
-        @keyframes pulseSmall {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .live-counter i {
-            margin-right: 10px;
-            animation: pulse 1s infinite;
-        }
-        
-        .notification {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            background: white;
-            color: #333;
-            padding: 15px 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            z-index: 1000;
-            display: none;
-            max-width: 300px;
-            border-left: 5px solid #28a745;
-        }
-        
-        .notification.show {
-            display: block;
-            animation: slideIn 0.5s forwards, fadeOut 0.5s forwards 4.5s;
-        }
-        
-        @keyframes slideIn {
-            from { transform: translateX(100%); }
-            to { transform: translateX(0); }
-        }
-        
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-        
-        .paypal-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 15px;
-            gap: 10px;
-        }
-        
-        .paypal-logo img {
-            height: 30px;
-            width: auto;
         }
         
         @media (max-width: 768px) {
@@ -463,26 +146,13 @@
                 padding: 40px 20px;
             }
             
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            
             .price-sale {
-                font-size: 3rem;
+                font-size: 2.5em;
             }
             
             .cta-button {
-                padding: 20px 40px;
-                font-size: 1.3rem;
-                width: 100%;
-            }
-            
-            .countdown {
-                font-size: 1.4rem;
+                padding: 15px 30px;
+                font-size: 1.1em;
             }
         }
     </style>
@@ -496,148 +166,59 @@
         <div class="hero">
             <h1>🍽️ Restaurant Review Crisis?</h1>
             <h2>Get Your Reviews Fixed in 24 Hours!</h2>
-            <p>Turn negative reviews into positive growth with our proven system</p>
+            <p style="font-size: 1.2em; margin: 20px 0;">Turn negative reviews into positive growth with our proven system</p>
             
             <div class="countdown" id="countdown">
                 ⏰ FLASH SALE ENDS IN: <span id="timer">CALCULATING...</span>
-            </div>
-            
-            <div class="live-counter" id="liveCounter">
-                <i class="fas fa-fire"></i> <span id="saleCount">17</span> Discounts Claimed
             </div>
         </div>
         
         <div class="price-section">
             <div class="price-original">Was: $194</div>
-            <div class="price-sale">NOW: $<span>97</span></div>
-            
+            <div class="price-sale">NOW: $97</div>
             <div class="urgency-box">
                 <strong>⚡ LIMITED TIME:</strong> Only available until 1:00 PM SAST today!<br>
-                <strong>🎯 EXCLUSIVE OFFER:</strong> First 10 restaurants get same-day implementation
+                <strong>🎯 This Week Only:</strong> First 10 restaurants get same-day implementation
             </div>
             
             <a href="https://www.paypal.com/ncp/payment/DHJGD4EJH56X2" class="cta-button" id="mainCTA">
                 🚀 CLAIM 50% DISCOUNT NOW
             </a>
             
-            <div class="guarantee-badge">
-                <i class="fas fa-shield-alt" style="margin-right: 10px;"></i>
-                30-Day Money-Back Guarantee • Secure Payment
-            </div>
-            
-            <div class="paypal-logo">
-                <span>Secure payment by</span>
-                <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal">
-            </div>
+            <p style="margin-top: 15px; color: #666;">
+                💳 Secure PayPal Checkout • 30-Day Money-Back Guarantee
+            </p>
         </div>
         
         <div class="features">
             <div class="feature">
-                <i class="fas fa-bolt"></i>
-                <h3>Instant Setup</h3>
+                <h3>⚡ Instant Setup</h3>
                 <p>Your review monitoring system goes live within 2 hours of payment</p>
             </div>
             <div class="feature">
-                <i class="fas fa-robot"></i>
-                <h3>Automated Response</h3>
+                <h3>🤖 Automated Response</h3>
                 <p>AI-powered responses to negative reviews that actually work</p>
             </div>
             <div class="feature">
-                <i class="fas fa-chart-line"></i>
-                <h3>Real Results</h3>
+                <h3>📊 Real Results</h3>
                 <p>Track your review score improvement in real-time</p>
             </div>
             <div class="feature">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>Local Focus</h3>
+                <h3>🎯 Local Focus</h3>
                 <p>Optimized for your specific city and customer base</p>
             </div>
         </div>
         
-        <div class="testimonials">
-            <h2>Success Stories From Happy Restaurants</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">M</div>
-                        <div>
-                            <h4>Maria Rodriguez</h4>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p>"Our rating went from 3.2 to 4.6 in just one week! The automated responses saved us hours every day and turned angry customers into loyal fans."</p>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">T</div>
-                        <div>
-                            <h4>Thomas Kim</h4>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p>"I was skeptical at first, but this system completely transformed our online reputation. We've seen a 30% increase in reservations since implementing it."</p>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">S</div>
-                        <div>
-                            <h4>Sarah Johnson</h4>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p>"The local optimization made all the difference. Our reviews now reflect our actual service quality, and we're ranking higher in local searches too!"</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="faq">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item">
-                <div class="faq-question"><i class="fas fa-question-circle"></i> How quickly will I see results?</div>
-                <div class="faq-answer">Most restaurants see noticeable improvements within 48 hours, with full results in 1-2 weeks. Our instant setup customers often see same-day results.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question"><i class="fas fa-question-circle"></i> Is there a setup fee?</div>
-                <div class="faq-answer">No setup fees! The price you see is all you pay. This flash sale includes full setup and configuration.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question"><i class="fas fa-question-circle"></i> Can I cancel if I'm not satisfied?</div>
-                <div class="faq-answer">Absolutely! We offer a 30-day money-back guarantee with no questions asked.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question"><i class="fas fa-question-circle"></i> Will this work for my specific restaurant?</div>
-                <div class="faq-answer">Yes! Our system is customized for each restaurant's unique situation, cuisine type, and location.</div>
-            </div>
-        </div>
-        
-        <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 20px; padding: 50px; margin: 50px 0; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);">
-            <h2 style="color: #feca57; margin-bottom: 20px; font-size: 2.5rem;">Why This Flash Sale?</h2>
-            <p style="font-size: 1.3rem; color: white; line-height: 1.8; max-width: 800px; margin: 0 auto 30px;">
+        <div style="background: white; border-radius: 20px; padding: 40px; margin: 40px 0; text-align: center;">
+            <h2 style="color: #333; margin-bottom: 20px;">Why This Flash Sale?</h2>
+            <p style="font-size: 1.1em; color: #666; line-height: 1.8;">
                 We're testing our new automated system and need 20 restaurants to be our success stories. 
-                You get premium service at 50% off, and we get the case studies we need. This is a win-win opportunity!
+                You get the same premium service at 50% off, and we get the case studies we need.
             </p>
             
-            <div style="margin: 30px auto; padding: 25px; background: rgba(255, 107, 107, 0.2); border-radius: 15px; max-width: 700px; border: 2px solid #ff6b6b;">
-                <strong style="color: white; font-size: 1.3rem;">⚠️ IMPORTANT:</strong> 
-                <p style="color: white; font-size: 1.2rem; margin-top: 15px;">This is a one-time offer. Once the timer hits zero, pricing returns to $194.</p>
+            <div style="margin: 30px 0; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                <strong style="color: #ff6b6b;">⚠️ IMPORTANT:</strong> This is a one-time offer. 
+                Once the timer hits zero, pricing returns to $194.
             </div>
             
             <a href="https://www.paypal.com/ncp/payment/DHJGD4EJH56X2" class="cta-button">
@@ -646,20 +227,13 @@
         </div>
     </div>
     
-    <div class="notification" id="notification">
-        <i class="fas fa-check-circle" style="color: #28a745; margin-right: 10px;"></i>
-        <span id="notificationText">Another restaurant just claimed their discount!</span>
-    </div>
-    
     <script>
-        // Countdown timer
+        // Fixed end date: August 3, 2025 at 1:00 PM SAST
+        const endDate = new Date(2025, 7, 3, 13, 0, 0); // Month is 0-indexed (7 = August)
+
         function updateCountdown() {
             const now = new Date();
-            // Set sale end time to 1:00 PM SAST (UTC+2)
-            const today = new Date(now.getTime() + (2 * 60 * 60 * 1000)); // Adjust for SAST
-            today.setHours(13, 0, 0, 0); // 1:00 PM
-            
-            const timeDiff = today - now;
+            const timeDiff = endDate - now;
             
             if (timeDiff > 0) {
                 const hours = Math.floor(timeDiff / (1000 * 60 * 60));
@@ -671,45 +245,19 @@
             } else {
                 document.getElementById('timer').textContent = 'SALE ENDED';
                 document.getElementById('countdown').style.background = '#999';
-                document.getElementById('countdown').style.animation = 'none';
+                
+                // Disable CTA buttons
+                document.querySelectorAll('.cta-button').forEach(button => {
+                    button.style.opacity = '0.6';
+                    button.style.cursor = 'not-allowed';
+                    button.onclick = (e) => e.preventDefault();
+                });
             }
         }
         
         // Update every second
         updateCountdown();
         setInterval(updateCountdown, 1000);
-        
-        // Simulate live sales
-        let saleCount = 17;
-        setInterval(() => {
-            saleCount += Math.floor(Math.random() * 3) + 1;
-            document.getElementById('saleCount').textContent = saleCount;
-            
-            // Show notification randomly
-            if (Math.random() > 0.7) {
-                const cities = ['Cape Town', 'Johannesburg', 'Durban', 'Pretoria', 'Port Elizabeth'];
-                const names = ['Maria', 'Thomas', 'Sarah', 'David', 'James', 'Lisa'];
-                const city = cities[Math.floor(Math.random() * cities.length)];
-                const name = names[Math.floor(Math.random() * names.length)];
-                
-                document.getElementById('notificationText').textContent = 
-                    `${name} from ${city} just claimed their discount!`;
-                
-                const notification = document.getElementById('notification');
-                notification.classList.remove('show');
-                setTimeout(() => {
-                    notification.classList.add('show');
-                }, 100);
-            }
-        }, 15000); // Every 15 seconds
-        
-        // FAQ toggle
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                item.classList.toggle('active');
-            });
-        });
         
         // URL parameter handling
         const urlParams = new URLSearchParams(window.location.search);
@@ -718,7 +266,7 @@
         
         if (restaurant && city) {
             document.title = `🚨 Flash Sale: Fix ${restaurant}'s Reviews - 50% OFF Today!`;
-            document.querySelector('.hero h1').innerHTML = `🍽️ ${restaurant} Review Crisis?`;
+            document.querySelector('h1').innerHTML = `🍽️ ${restaurant} Review Crisis?`;
             
             // Update urgency messaging
             const urgencyBox = document.querySelector('.urgency-box');
@@ -728,52 +276,15 @@
             `;
         }
         
-        // Add hover effect to features
-        document.querySelectorAll('.feature').forEach(feature => {
-            feature.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px)';
-            });
-            feature.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-        
-        // Add 30-minute warning
-        setTimeout(() => {
-            const warning = document.createElement('div');
-            warning.style.position = 'fixed';
-            warning.style.top = '0';
-            warning.style.left = '0';
-            warning.style.width = '100%';
-            warning.style.background = '#dc3545';
-            warning.style.color = 'white';
-            warning.style.padding = '15px';
-            warning.style.textAlign = 'center';
-            warning.style.zIndex = '2000';
-            warning.style.fontWeight = 'bold';
-            warning.style.fontSize = '1.2rem';
-            warning.innerHTML = '⚠️ LAST 30 MINUTES! 3 discounts left at $97 price!';
-            document.body.prepend(warning);
-            
-            // Make the warning pulse
-            setInterval(() => {
-                warning.style.boxShadow = warning.style.boxShadow ? 
-                    'none' : '0 0 20px rgba(255, 255, 255, 0.8)';
-            }, 1000);
-        }, 1.5 * 60 * 60 * 1000); // 1.5 hours
-        
         // Track clicks
         document.querySelectorAll('.cta-button').forEach(button => {
             button.addEventListener('click', function() {
-                // Track conversion
+                // Add your conversion tracking here
                 console.log('CTA clicked:', {
                     restaurant: restaurant,
                     city: city,
                     timestamp: new Date()
                 });
-                
-                // Show confirmation
-                alert('Redirecting to secure PayPal payment page...');
             });
         });
     </script>
